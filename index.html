@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tatua Solutions | Engineering & Digital Web Development</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">TATUA<span>SOLUTIONS</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#calculator">Price Estimator</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="btn-primary-nav">Get a Quote</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-container">
+      <span class="badge"><i class="fa-solid fa-bolt"></i> Digital & Engineering Problem Solving</span>
+      <h1>We Build High-Performance <br><span class="highlight">Websites & Technical Systems</span></h1>
+      <p>
+        At Tatua Solutions, we turn complex challenges into clean, fast, and scalable digital products—from custom responsive websites to embedded hardware and 3D visual systems.
+      </p>
+      <div class="hero-btns">
+        <a href="#calculator" class="btn btn-primary"><i class="fa-solid fa-calculator"></i> Estimate Your Website</a>
+        <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-laptop-code"></i> View Portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title">Core Capabilities</h2>
+      <p class="section-subtitle">Tailored technical solutions engineered to elevate your business</p>
+
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Web Development</h3>
+          <p>Custom responsive websites, landing pages, dynamic web applications, and e-commerce setups built for high performance and speed.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Responsive & Mobile-First Design</li>
+            <li><i class="fa-solid fa-check"></i> SEO Optimization & Fast Loading</li>
+            <li><i class="fa-solid fa-check"></i> Zero-Cost / Custom Cloud Hosting</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Embedded & Control Systems</h3>
+          <p>Microcontroller firmware development (ATmega/C++), circuit design, schematic simulation, and automated control hardware.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Register-Level Firmware Development</li>
+            <li><i class="fa-solid fa-check"></i> Circuit Simulation & PCB Layout</li>
+            <li><i class="fa-solid fa-check"></i> Hardware-Software Integration</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-cubes"></i></div>
+          <h3>Interactive 3D & Media</h3>
+          <p>Interactive 3D component modeling, CAD mechanical assemblies, and virtual reality visualizations using Unity and Blender.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 3D CAD Modeling & Rendering</li>
+            <li><i class="fa-solid fa-check"></i> WebGL & VR Engine Visuals</li>
+            <li><i class="fa-solid fa-check"></i> Interactive Technical Callouts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Project Cost Calculator -->
+  <section id="calculator" class="calculator-section">
+    <div class="container">
+      <h2 class="section-title">Web Project Cost Estimator</h2>
+      <p class="section-subtitle">Select your requirements to get an instant cost and timeline estimate for your web development project.</p>
+
+      <div class="calc-box">
+        <form id="calc-form">
+          <div class="calc-group">
+            <label for="site-type"><i class="fa-solid fa-sitemap"></i> Project Type:</label>
+            <select id="site-type">
+              <option value="15000">Landing Page / Single-Page Site</option>
+              <option value="30000" selected>Multi-Page Business Website</option>
+              <option value="50000">Dynamic Web Application / Portal</option>
+              <option value="60000">E-Commerce Store</option>
+            </select>
+          </div>
+
+          <div class="calc-group">
+            <label for="page-count"><i class="fa-solid fa-file-code"></i> Number of Pages: <span id="page-val">5</span></label>
+            <input type="range" id="page-count" min="1" max="15" value="5" />
+          </div>
+
+          <div class="calc-group checkboxes">
+            <label><i class="fa-solid fa-sliders"></i> Add-On Features:</label>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" id="feature-seo" value="5000" checked /> Advanced SEO Setup</label>
+              <label><input type="checkbox" id="feature-form" value="3000" checked /> Contact Form Integration</label>
+              <label><input type="checkbox" id="feature-cms" value="10000" /> Admin Content Dashboard</label>
+              <label><input type="checkbox" id="feature-host" value="4000" /> Custom Domain & Cloud Hosting Setup</label>
+            </div>
+          </div>
+        </form>
+
+        <div class="calc-results">
+          <div class="result-item">
+            <span>Estimated Investment:</span>
+            <h3 id="total-price">KES 38,000</h3>
+          </div>
+          <div class="result-item">
+            <span>Estimated Delivery:</span>
+            <h4 id="total-time">7 - 10 Business Days</h4>
+          </div>
+          <a href="#contact" class="btn btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Request This Build</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Work</h2>
+      <p class="section-subtitle">A showcase of technical innovation, software craftsmanship, and system design.</p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-solar-panel"></i>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Web Development / Business Platform</span>
+            <h3>Kiwa Energy Solutions</h3>
+            <p>Clean Web application platform designed to communicate renewable energy offerings and business pitch logistics.</p>
+            <a href="https://kiwa-energy-solutions.onrender.com/" target="_blank" class="project-link">Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-engine"></i>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Interactive 3D / Unity</span>
+            <h3>V6 Engine VR Model</h3>
+            <p>Interactive 3D engine assembly featuring synchronized cylinder motion, exploded component callouts, and mechanical animations.</p>
+            <a href="#contact" class="project-link">Inquire Demo <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-placeholder">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Embedded Systems</span>
+            <h3>ATmega Smart Display Controller</h3>
+            <p>Register-level C/C++ firmware featuring latch-and-hold hardware multiplexing and ADC sensor interfaces.</p>
+            <a href="#contact" class="project-link">Inquire Details <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container about-container">
+      <div class="about-text">
+        <h2 class="section-title text-left">About Tatua Solutions</h2>
+        <p>
+          Derived from the Swahili word <strong>"Tatua"</strong> (meaning <em>to solve</em>), Tatua Solutions was founded on a simple principle: delivering practical, reliable, and elegant engineering & digital solutions.
+        </p>
+        <p>
+          Whether building responsive websites that boost your company's online visibility, programming microcontroller hardware, or creating 3D technical visualizations, every project is executed with rigorous attention to performance, modern design, and functional excellence.
+        </p>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <h4><i class="fa-solid fa-code"></i> Modern Code</h4>
+            <p>Built with fast, standards-compliant HTML5, CSS3, JavaScript, and React architectures.</p>
+          </div>
+          <div class="highlight-item">
+            <h4><i class="fa-solid fa-server"></i> Smart Deployment</h4>
+            <p>Optimized for zero-cost cloud host hosting (Cloudflare, Vercel, Render, VPS setups).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Start Your Project</h2>
+      <p class="section-subtitle">Have a website or technical project in mind? Let's build something great together.</p>
+
+      <div class="contact-box">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="John Doe" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="john@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="service-type">Service Required</label>
+            <select id="service-type">
+              <option value="web">Web Development & Hosting Setup</option>
+              <option value="embedded">Embedded / Microcontroller Project</option>
+              <option value="3d">3D Modeling / Unity Visualization</option>
+              <option value="other">General Technical Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Description</label>
+            <textarea id="message" rows="5" placeholder="Tell us about your project requirements, goals, and timeline..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <p>&copy; <span id="year"></span> Tatua Solutions. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
