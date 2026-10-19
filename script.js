@@ -101,25 +101,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   emailjs.init("w_xev6KUhEvWUy21a");
 
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Initialize EmailJS with your Public Key
+  // (Replace 'YOUR_PUBLIC_KEY' with your actual key from EmailJS Account settings)
+  emailjs.init("w_xev6KUhEvWUy21a");
 
-  const params = {
-    name: document.getElementById("name").value,          // Matches {{name}}
-    email: document.getElementById("email").value,        // Matches {{email}}
-    service: document.getElementById("service-type").value,
-    message: document.getElementById("message").value,
-    estimated_quote: document.getElementById("total-price").textContent,
-    title: document.getElementById("service-type").value  // Matches {{title}} or update template to {{service}}
-  };
+  // 2. Contact Form Submit Handler
+  const contactForm = document.getElementById("contact-form");
 
-  emailjs.send("service_btgxfbs", "template_c9l104h", params)
-    .then(() => {
-      alert("Thank you! Your quote request has been sent to Tatua Solutions.");
-    })
-    .catch((error) => {
-      alert("Failed to send message. Please try again.");
-      console.error("EmailJS Error:", error);
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        service: document.getElementById("service-type").value,
+        message: document.getElementById("message").value,
+        estimated_quote: document.getElementById("total-price") 
+          ? document.getElementById("total-price").textContent 
+          : "N/A"
+      };
+
+      // Send via EmailJS
+      emailjs
+        .send("service_btgxfbs", "template_c9l104h", params)
+        .then(() => {
+          alert("Thank you! Your quote request has been sent to Tatua Solutions.");
+          contactForm.reset();
+        })
+        .catch((error) => {
+          alert("Failed to send message. Please check console for details.");
+          console.error("EmailJS Error:", error);
+        });
     });
+  }
 });
 });
