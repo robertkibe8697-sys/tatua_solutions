@@ -105,16 +105,21 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const params = {
-    from_name: document.getElementById("name").value,
-    from_email: document.getElementById("email").value,
+    name: document.getElementById("name").value,          // Matches {{name}}
+    email: document.getElementById("email").value,        // Matches {{email}}
     service: document.getElementById("service-type").value,
     message: document.getElementById("message").value,
-    estimated_quote: document.getElementById("total-price").textContent
+    estimated_quote: document.getElementById("total-price").textContent,
+    title: document.getElementById("service-type").value  // Matches {{title}} or update template to {{service}}
   };
 
   emailjs.send("service_btgxfbs", "template_c9l104h", params)
     .then(() => {
       alert("Thank you! Your quote request has been sent to Tatua Solutions.");
+    })
+    .catch((error) => {
+      alert("Failed to send message. Please try again.");
+      console.error("EmailJS Error:", error);
     });
 });
 });
